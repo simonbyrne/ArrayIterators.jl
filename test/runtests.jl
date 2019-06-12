@@ -1,7 +1,7 @@
 using ArrayIterators, Test
 
-mysum(x::EachRow) = vec(sum(underlying(x),dims=1))
-mysum(x::EachCol) = vec(sum(underlying(x),dims=2))
+mysum(x::EachRow) = vec(sum(parent(x),dims=1))
+mysum(x::EachCol) = vec(sum(parent(x),dims=2))
 
 
 A = reshape(1:20,4,5)

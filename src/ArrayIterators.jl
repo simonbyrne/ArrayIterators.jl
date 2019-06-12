@@ -1,6 +1,6 @@
 module ArrayIterators
 
-export EachRow, EachCol, underlying
+export EachRow, EachCol
 
 @static if VERSION < v"1.1"
     # added in https://github.com/JuliaLang/julia/pull/29749
@@ -18,7 +18,7 @@ const EachCol_eachslice{A,I} = Base.Generator{I,typeof(eachslice(zeros(0,0),dims
 const EachRow{A,I} = Union{EachRow_eachrow{A,I}, EachRow_eachslice{A,I}}
 const EachCol{A,I} = Union{EachCol_eachcol{A,I}, EachCol_eachslice{A,I}}
 
-underlying(x::EachRow) = x.f.A
-underlying(x::EachCol) = x.f.A
+Base.parent(x::EachRow) = x.f.A
+Base.parent(x::EachCol) = x.f.A
 
 end # module
