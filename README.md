@@ -1,5 +1,9 @@
 # ArrayIterators.jl
 
+[![Travis build status](https://travis-ci.org/simonbyrne/ArrayIterators.jl.svg?branch=master)](https://travis-ci.org/simonbyrne/ArrayIterators.jl)
+[![Appveyor build status](https://ci.appveyor.com/api/projects/status/iy25a8lg6pk3wt34/branch/master?svg=true)](https://ci.appveyor.com/project/simonbyrne/arrayiterators-jl/branch/master)
+
+
 This exports the types `EachRow` and `EachCol` type aliases, allowing users to dispatch on the iterators returned by the `eachcol`, `eachrow` and `eachslice` functions, in order to provide efficient implementations for these iterators.
 
 Additionally it provides the `underlying` function for accessing the matrix underlying the iterators.
