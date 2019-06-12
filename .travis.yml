@@ -1,0 +1,20 @@
+language: julia
+os:
+  - linux
+  - osx
+julia:
+  - 1.1
+  - nightly
+matrix:
+  allow_failures:
+    julia: nightly
+notifications:
+  email: false
+
+after_success:
+  - julia -e 'import Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder()); Coveralls.submit(process_folder())'
+
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
